@@ -16,8 +16,7 @@ export async function connectToDatabase() {
 
   if (!cached.promise) {
     cached.promise = mongoose.connect(env.MONGODB_URI, {
-      autoIndex: env.NODE_ENV !== "production",
-      dbName: "ai-business-planner"
+      autoIndex: env.NODE_ENV !== "production"
     });
   }
 

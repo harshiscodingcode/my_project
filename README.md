@@ -32,7 +32,7 @@ Production-ready SaaS starter built with Next.js App Router, TypeScript, Tailwin
 ```env
 NODE_ENV=development
 NEXT_PUBLIC_APP_URL=http://localhost:3000
-MONGODB_URI=mongodb://127.0.0.1:27017/ai-business-planner
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster-url>/ai-business-planner?retryWrites=true&w=majority&appName=Cluster0
 REDIS_URL=redis://127.0.0.1:6379
 JWT_SECRET=use-a-long-random-secret-at-least-32-characters
 AI_PROVIDER=groq
@@ -43,9 +43,10 @@ GEMINI_API_KEY=your-gemini-key
 ## Local development
 
 1. Install dependencies with `npm install`.
-2. Start MongoDB and Redis locally, or point the environment variables to managed services.
-3. Run `npm run dev`.
-4. Open `http://localhost:3000`.
+2. Add your MongoDB Atlas connection string to `MONGODB_URI`.
+3. Start Redis locally, or point `REDIS_URL` to a managed Redis service.
+4. Run `npm run dev`.
+5. Open `http://localhost:3000`.
 
 ## Recommended production setup
 
