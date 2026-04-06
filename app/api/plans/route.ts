@@ -1,11 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { requireAuth } from "@/lib/auth/guards";
 import { connectToDatabase } from "@/lib/db/mongoose";
 import { serializePlan } from "@/lib/plan-formatter";
 import { PlanModel } from "@/models/Plan";
 
-export async function GET() {
-  const auth = await requireAuth();
+export async function GET(request: NextRequest) {
+  const auth = await requireAuth(request);
   if (auth.error || !auth.user) return auth.error;
 
   await connectToDatabase();

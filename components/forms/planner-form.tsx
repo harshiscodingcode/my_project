@@ -33,6 +33,7 @@ export function PlannerForm() {
     const response = await fetch("/api/plans/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
       body: JSON.stringify(values satisfies PlannerFormInput)
     });
     const data = await response.json();

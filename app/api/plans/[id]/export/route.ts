@@ -4,8 +4,8 @@ import { connectToDatabase } from "@/lib/db/mongoose";
 import { createPlanPdf } from "@/lib/pdf";
 import { PlanModel } from "@/models/Plan";
 
-export async function GET(_: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  const auth = await requireAuth();
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const auth = await requireAuth(request);
   if (auth.error || !auth.user) return auth.error;
 
   const { id } = await params;

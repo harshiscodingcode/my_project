@@ -26,12 +26,17 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
     const response = await fetch(`/api/auth/${mode}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
       body: JSON.stringify(values)
     });
 
-    const data = await response.json();
+    const contentType = response.headers.get("content-type") ?? "";
+    const data = contentType.includes("application/json")
+      ? await response.json()
+      : { message: await response.text() };
+
     if (!response.ok) {
-      setError(data.message ?? "Request failed");
+      setError(typeof data.message === "string" && data.message ? data.message : "Request failed");
       return;
     }
 

@@ -10,7 +10,7 @@ import { plannerSchema } from "@/lib/validation/plan";
 import { PlanModel } from "@/models/Plan";
 
 export async function POST(request: NextRequest) {
-  const auth = await requireAuth();
+  const auth = await requireAuth(request);
   if (auth.error || !auth.user) return auth.error;
 
   const allowed = await rateLimit(`generate:${auth.user.userId}`, 12, 60);
@@ -41,3 +41,4 @@ export async function POST(request: NextRequest) {
 
   return NextResponse.json({ plan: serializePlan(plan.toObject()) }, { status: 201 });
 }
+

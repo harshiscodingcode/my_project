@@ -3,10 +3,23 @@ import { cookies } from "next/headers";
 import { getEnv } from "@/lib/env";
 import type { UserJwtPayload } from "@/types";
 
-const JWT_COOKIE = "abp_token";
+export const JWT_COOKIE = "abp_token";
 
 function getSecret() {
   return new TextEncoder().encode(getEnv().JWT_SECRET);
+}
+
+export function getAuthCookieOptions() {
+  const env = getEnv();
+  const useSecureCookie = env.NEXT_PUBLIC_APP_URL.startsWith("https://");
+
+  return {
+    httpOnly: true,
+    sameSite: "lax" as const,
+    secure: useSecureCookie,
+    path: "/",
+    maxAge: 60 * 60 * 24 * 7
+  };
 }
 
 export async function signUserToken(payload: UserJwtPayload) {
@@ -23,24 +36,16 @@ export async function verifyUserToken(token: string) {
 }
 
 export async function setAuthCookie(token: string) {
-  const env = getEnv();
   const cookieStore = await cookies();
-
-  cookieStore.set(JWT_COOKIE, token, {
-    httpOnly: true,
-    sameSite: "lax",
-    secure: env.NODE_ENV === "production",
-    path: "/",
-    maxAge: 60 * 60 * 24 * 7
-  });
+  cookieStore.set(JWT_COOKIE, token, getAuthCookieOptions());
 }
 
 export async function clearAuthCookie() {
   const cookieStore = await cookies();
   cookieStore.set(JWT_COOKIE, "", {
-    httpOnly: true,
+    ...getAuthCookieOptions(),
     expires: new Date(0),
-    path: "/"
+    maxAge: 0
   });
 }
 

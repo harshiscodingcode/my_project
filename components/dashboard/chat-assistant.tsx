@@ -21,6 +21,7 @@ export function ChatAssistant({ planId, initialMessages }: { planId: string; ini
     const response = await fetch(`/api/plans/${planId}/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
       body: JSON.stringify({ message })
     });
     const data = await response.json();

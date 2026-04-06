@@ -18,10 +18,10 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
             <Logo />
             <div className="flex items-center gap-3 lg:mt-4 lg:justify-between">
               <ThemeToggle />
-              <Link href="/api/auth/logout" className="btn-secondary h-11 rounded-full px-4">
+              <a href="/api/auth/logout" className="btn-secondary inline-flex h-11 rounded-full px-4">
                 <LogOut className="mr-2 h-4 w-4" />
                 Logout
-              </Link>
+              </a>
             </div>
           </div>
           <nav className="grid gap-2 sm:grid-cols-3 lg:grid-cols-1">

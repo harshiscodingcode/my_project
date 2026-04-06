@@ -5,8 +5,8 @@ import { serializePlan } from "@/lib/plan-formatter";
 import { taskToggleSchema } from "@/lib/validation/plan";
 import { PlanModel } from "@/models/Plan";
 
-export async function GET(_: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  const auth = await requireAuth();
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const auth = await requireAuth(request);
   if (auth.error || !auth.user) return auth.error;
 
   const { id } = await params;
@@ -17,8 +17,8 @@ export async function GET(_: NextRequest, { params }: { params: Promise<{ id: st
   return NextResponse.json({ plan: serializePlan(plan) });
 }
 
-export async function DELETE(_: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  const auth = await requireAuth();
+export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const auth = await requireAuth(request);
   if (auth.error || !auth.user) return auth.error;
 
   const { id } = await params;
@@ -28,7 +28,7 @@ export async function DELETE(_: NextRequest, { params }: { params: Promise<{ id:
 }
 
 export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  const auth = await requireAuth();
+  const auth = await requireAuth(request);
   if (auth.error || !auth.user) return auth.error;
 
   const payload = taskToggleSchema.safeParse(await request.json());

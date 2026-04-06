@@ -8,7 +8,7 @@ import { chatSchema } from "@/lib/validation/plan";
 import { PlanModel } from "@/models/Plan";
 
 export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  const auth = await requireAuth();
+  const auth = await requireAuth(request);
   if (auth.error || !auth.user) return auth.error;
 
   const allowed = await rateLimit(`chat:${auth.user.userId}`, 25, 60);
