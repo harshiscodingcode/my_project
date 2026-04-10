@@ -1,5 +1,7 @@
 export type UserJwtPayload = { userId: string; email: string };
 
+export type PlanTier = "free" | "student" | "pro";
+
 export type PlannerFormInput = {
   skills: string;
   interests: string;

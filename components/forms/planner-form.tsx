@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { GROWTH_MONTHLY_PLAN_LIMIT, STARTER_PLAN_LIMIT } from "@/lib/pricing";
 import { plannerSchema } from "@/lib/validation/plan";
 import type { PlannerFormInput } from "@/types";
 import type { z } from "zod";
@@ -89,11 +90,11 @@ export function PlannerForm() {
             <p className="text-sm font-medium uppercase tracking-[0.25em] text-primary">Plan engine</p>
             <h3 className="mt-4 text-2xl font-semibold">Fast AI generation with persistent execution tracking.</h3>
             <p className="mt-4 text-sm text-foreground/70">
-              Each plan includes a 30-day roadmap, cost model, revenue forecast, risk analysis, market demand score, and an AI follow-up assistant.
+              Starter includes {STARTER_PLAN_LIMIT} plans. Growth unlocks up to {GROWTH_MONTHLY_PLAN_LIMIT} plans per month. Pro unlocks unlimited plans plus advanced analysis.
             </p>
           </div>
           <div className="mt-6 rounded-3xl bg-muted p-5 text-sm text-foreground/80">
-            Share whatever you already know. Even short answers work, and the planner will shape them into a practical starting point.
+            Share whatever you already know. Even short answers work, and the planner will shape them into a practical starting point you can keep improving.
           </div>
         </div>
       )}

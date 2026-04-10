@@ -1,16 +1,16 @@
 {
   "/_not-found/page": "/_not-found",
+  "/api/auth/login/route": "/api/auth/login",
   "/api/auth/logout/route": "/api/auth/logout",
   "/api/auth/register/route": "/api/auth/register",
-  "/api/auth/login/route": "/api/auth/login",
   "/api/plans/[id]/chat/route": "/api/plans/[id]/chat",
+  "/api/plans/[id]/export/route": "/api/plans/[id]/export",
   "/api/plans/[id]/route": "/api/plans/[id]",
   "/api/plans/generate/route": "/api/plans/generate",
   "/api/plans/route": "/api/plans",
-  "/api/plans/[id]/export/route": "/api/plans/[id]/export",
   "/(auth)/login/page": "/login",
   "/(auth)/register/page": "/register",
   "/page": "/",
-  "/dashboard/plans/[id]/page": "/dashboard/plans/[id]",
-  "/dashboard/page": "/dashboard"
+  "/dashboard/page": "/dashboard",
+  "/dashboard/plans/[id]/page": "/dashboard/plans/[id]"
 }

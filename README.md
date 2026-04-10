@@ -1,12 +1,21 @@
 # AI Business Planner
 
-Production-ready SaaS starter built with Next.js App Router, TypeScript, Tailwind CSS, MongoDB, Mongoose, Redis, and Groq or Gemini for AI-powered business plan generation.
+AI business-planning SaaS built with Next.js App Router, TypeScript, Tailwind CSS, MongoDB, Mongoose, Redis, and Groq or Gemini for founder-focused plan generation.
+
+## Monetization model
+
+- Starter: up to 2 plans total
+- Growth: Rs 99/month for up to 50 plans per month
+- Pro: Rs 299/month for unlimited plans plus advanced analysis
+
+This positioning is aimed at making the product more saleable in the India market by keeping entry friction low and the upgrade path obvious.
 
 ## Features
 
 - JWT authentication with secure password hashing
 - Personalized AI business plan generator
 - 30-day roadmap with task progress tracking
+- Freemium pricing model with Starter, Growth, and Pro tiers
 - MongoDB persistence with indexed Mongoose schemas
 - Redis caching and Redis-backed rate limiting fallback support
 - AI follow-up chat assistant
@@ -55,6 +64,7 @@ GEMINI_API_KEY=your-gemini-key
 - Use Upstash Redis or Redis Cloud for low-latency caching and rate limiting.
 - Store secrets in environment variables only.
 - Enable CDN caching for static assets.
+- Add a payment provider such as Razorpay or Stripe before going live with paid subscriptions.
 
 ## Folder structure
 

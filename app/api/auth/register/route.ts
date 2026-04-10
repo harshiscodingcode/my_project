@@ -23,7 +23,8 @@ export async function POST(request: NextRequest) {
     const user = await UserModel.create({
       name: payload.data.name,
       email: payload.data.email,
-      passwordHash: await hashPassword(payload.data.password)
+      passwordHash: await hashPassword(payload.data.password),
+      planTier: "free"
     });
 
     const token = await signUserToken({ userId: user._id.toString(), email: user.email });
