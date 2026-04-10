@@ -38,7 +38,7 @@ export function Logo({ size = "default", centered = false }: LogoProps) {
     <Link href="/" className={cn("group flex items-center text-left", classes.wrap, centered && "justify-center")}>
       <div
         className={cn(
-          "relative flex items-center justify-center overflow-hidden border border-white/10 bg-[linear-gradient(180deg,rgba(20,29,48,0.92),rgba(12,18,31,0.98))] shadow-[0_16px_34px_rgba(0,0,0,0.34)]",
+          "relative flex items-center justify-center overflow-hidden border border-border/50 bg-card shadow-[0_16px_34px_-12px_rgba(0,0,0,0.2)] dark:bg-[linear-gradient(180deg,rgba(20,29,48,0.92),rgba(12,18,31,0.98))]",
           classes.badge
         )}
       >
@@ -49,8 +49,8 @@ export function Logo({ size = "default", centered = false }: LogoProps) {
         />
       </div>
       <div>
-        <p className={cn("font-semibold leading-none tracking-tight text-[#ddb18d]", classes.title)}>Idea2empire</p>
-        <p className={cn("mt-1 text-[#a88467]/90", classes.subtitle)}>AI Business Planning Engine</p>
+        <p className={cn("font-semibold leading-none tracking-tight text-[#8a5b3a] dark:text-[#ddb18d]", classes.title)}>Idea2empire</p>
+        <p className={cn("mt-1 text-[#6e4e36]/90 dark:text-[#a88467]/90", classes.subtitle)}>AI Business Planning Engine</p>
       </div>
     </Link>
   );
