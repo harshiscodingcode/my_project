@@ -11,7 +11,7 @@ const links = [
 
 export function DashboardShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="grid min-h-screen lg:grid-cols-[108px_1fr]">
+    <div className="grid min-h-screen lg:grid-cols-[280px_1fr]">
       <aside className="border-b border-white/8 bg-[rgba(10,14,23,0.86)] p-4 sm:p-5 lg:min-h-screen lg:border-b-0 lg:border-r lg:p-6">
         <div className="flex flex-col gap-6">
           <div className="flex items-start justify-between gap-4 lg:flex-col lg:items-stretch">
