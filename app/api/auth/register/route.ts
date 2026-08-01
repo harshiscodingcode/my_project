@@ -40,6 +40,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Email already in use" }, { status: 409 });
     }
 
-    return NextResponse.json({ message: "Unable to register right now" }, { status: 500 });
+    // Keep production responses generic, but expose the actionable server
+    // error while developing so configuration/database issues are diagnosable.
+    const message = process.env.NODE_ENV === "development" && error instanceof Error
+      ? `Unable to register right now: ${error.message}`
+      : "Unable to register right now";
+    return NextResponse.json({ message }, { status: 500 });
   }
 }

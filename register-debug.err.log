@@ -1,0 +1,4 @@
+<w> [webpack.cache.PackFileCacheStrategy] Restoring failed for ResolverCachePlugin|loader|default|path=|D:\cloud project|request=|next-app-loader from pack: Error: invalid literal/lengths set
+<w> [webpack.cache.PackFileCacheStrategy] Restoring failed for ResolverCachePlugin|loader|default|path=|D:\cloud project|request=|next-flight-loader from pack: Error: invalid literal/lengths set
+<w> [webpack.cache.PackFileCacheStrategy] Restoring failed for ResolverCachePlugin|loader|default|path=|D:\cloud project|request=|next-swc-loader from pack: Error: invalid literal/lengths set
+<w> [webpack.cache.PackFileCacheStrategy] Restoring failed for ResolverCachePlugin|loader|default|path=|D:\cloud project|request=|next-flight-client-entry-loader from pack: Error: invalid literal/lengths set

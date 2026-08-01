@@ -1,0 +1,15 @@
+
+> ai-business-planner@1.0.0 dev
+> next dev
+
+   ▲ Next.js 15.5.14
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.56.1:3000
+   - Environments: .env.local
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+ ✓ Starting...
+ ✓ Ready in 4.3s
+ ○ Compiling /api/auth/register ...
+ ✓ Compiled /api/auth/register in 3.9s (486 modules)
