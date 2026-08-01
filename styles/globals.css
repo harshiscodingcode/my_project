@@ -12,6 +12,8 @@
   --secondary: 28 57% 55%;
   --accent: 193 77% 45%;
   --danger: 0 84% 60%;
+  --safe-top: env(safe-area-inset-top);
+  --safe-bottom: env(safe-area-inset-bottom);
 }
 
 .dark {

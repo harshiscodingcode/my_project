@@ -1,0 +1,20 @@
+# Ignore dependencies
+node_modules/
+.expo/
+
+# Ignore build artifacts
+dist/
+build/
+*.jks
+*.p12
+*.key
+*.mobileprovision
+
+# Ignore other environments
+ios/
+android/
+
+# Ignore logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*

@@ -23,25 +23,30 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
 
   const onSubmit = handleSubmit(async (values) => {
     setError("");
-    const response = await fetch(`/api/auth/${mode}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      body: JSON.stringify(values)
-    });
+    try {
+      const response = await fetch(`/api/auth/${mode}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(values)
+      });
 
-    const contentType = response.headers.get("content-type") ?? "";
-    const data = contentType.includes("application/json")
-      ? await response.json()
-      : { message: await response.text() };
+      const contentType = response.headers.get("content-type") ?? "";
+      const data = contentType.includes("application/json")
+        ? await response.json()
+        : { message: await response.text() };
 
-    if (!response.ok) {
-      setError(typeof data.message === "string" && data.message ? data.message : "Request failed");
+      if (!response.ok) {
+        setError(typeof data.message === "string" && data.message ? data.message : "Request failed");
+        return;
+      }
+
+      router.push("/dashboard");
+      router.refresh();
+    } catch {
+      setError("Unable to reach the server. Check your connection and try again.");
       return;
     }
-
-    router.push("/dashboard");
-    router.refresh();
   });
 
   return (

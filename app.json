@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "5695e1d9-37da-473e-8de7-f19f6139b37c"
+      }
+    },
+    "android": {
+      "package": "com.harshikaaa.aibusinessplanner"
+    }
+  }
+}

@@ -33,6 +33,13 @@ export async function POST(request: NextRequest) {
     return response;
   } catch (error) {
     console.error("Register failed", error);
+
+    // MongoDB can still reject two simultaneous registrations for the same
+    // email even when the pre-check above found no existing user.
+    if (error && typeof error === "object" && "code" in error && error.code === 11000) {
+      return NextResponse.json({ message: "Email already in use" }, { status: 409 });
+    }
+
     return NextResponse.json({ message: "Unable to register right now" }, { status: 500 });
   }
 }
